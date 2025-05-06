@@ -22,9 +22,6 @@
   list-style-type: none;
 }
 
-.checkbox {
-}
-
 .js-tareas {
   display: flex;
   flex-direction: column;
