@@ -1,8 +1,8 @@
 .formulario {
   background-color: aquamarine;
-  height: 100px;
+  height: auto;
   width: auto;
-  margin-right: 30px;
+  margin-right: 10px;
   padding: 10px;
 }
 
@@ -13,7 +13,7 @@
 .filtro-tareas {
   padding: 10px;
   background-color: rgb(125, 173, 201);
-  height: 100px;
+  height: auto;
   width: auto;
   margin-left: 30px;
 }
@@ -25,4 +25,13 @@
 .js-tareas {
   display: flex;
   flex-direction: column;
+  padding: 0;
+}
+
+.check {
+  display: flex;
+}
+
+.tachado {
+  text-decoration: line-through;
 }
