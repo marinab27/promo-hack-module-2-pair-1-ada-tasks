@@ -1,6 +1,8 @@
+'use strict';
+
 const tareasUl = document.querySelector(".js-tareas");
 const boton = document.querySelector(".js-button");
-
+const filtroInput = document.querySelector(".js-filtroInput");
 
 const tasks = [
   { name: "Recoger setas en el campo", completed: true, id: 1 },
@@ -36,10 +38,6 @@ function pintarHTML(tareas) {
     }
   } */
   
-
-
-
-
 pintarHTML(tasks);
 
 const handleClickTareasUl = (event) => { 
@@ -64,10 +62,12 @@ const handleClickTareasUl = (event) => {
 
 const handleButton = (event) => {
   event.preventDefault();
-  
-}
+  tasks.filter((tareaFiltro) =>  { })
+  }
 
-
+  //recoger el valor de input filtroInput.value
+  //tarea.name contiene el valor de input
+  // retornar SOLO las taeras que contengan ese input
 
 
 tareasUl.addEventListener("click", handleClickTareasUl);
