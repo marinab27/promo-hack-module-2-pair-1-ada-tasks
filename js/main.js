@@ -1,4 +1,6 @@
 const tareasUl = document.querySelector(".js-tareas");
+const boton = document.querySelector(".js-button");
+
 
 const tasks = [
   { name: "Recoger setas en el campo", completed: true, id: 1 },
@@ -12,26 +14,68 @@ const tasks = [
 ];
 
 function pintarHTML(tareas) {
+  tareasUl.innerHTML = "";
   for (const tarea of tareas) {
     if (tarea.completed === true) {
-      tareasUl.innerHTML += `<div class="check"><input class="js-checkbox checkbox" type="checkbox" id=${tarea.id}/> <li class="tachado">${tarea.name}</li></div>`;
+      tareasUl.innerHTML += `<div class="check"><input checked class="js-checkbox checkbox" type="checkbox" id=${tarea.id}/> <li class="tachado">${tarea.name}</li></div>`;
     } else {
-      tareasUl.innerHTML += `<div class="check"><input class="js-checkbox checkbox" type="checkbox" id=${tarea.id}/> <li>${tarea.name}</li></div>`;
+      tareasUl.innerHTML += `<div class="check"><input class="js-checkbox checkbox" type="checkbox" id=${tarea.id}/> <li> ${tarea.name}</li></div>`;
     }
   }
-}
+} 
+
+/*   function pintarHTML(tareas) {
+    tareasUl.innerHTML = "";
+    for (const tarea of tareas) {
+      tareasUl.innerHTML += `
+        <div class="check">
+          <input class="js-checkbox checkbox" type="checkbox" id=${tarea.id} ${tarea.completed ? " checked" : ""}/>
+          <li class="${tarea.completed ? "tachado" : ""}">${tarea.name}</li>
+        </div>
+      `;
+    }
+  } */
+  
+
+
+
 
 pintarHTML(tasks);
 
-const handleClickTareasUl = (event) => {
+const handleClickTareasUl = (event) => { 
   console.log(event.target);
   const taskId = parseInt(event.target.id); // Obtengo el id del checkbox clickado por la usuaria
   console.log(taskId);
   if (!taskId) return; // Si no ha pulsado en el checkbox, no queremos hacer nada y salimos de la función
 
-  // Busca la tarea que tenga el id `taskId` en el array `tasks`
-  // Una vez que has obtenido la tarea, actualiza la propiedad `completed`
-  // Pinta de nuevo las tareas en el html
+  const found = tasks.find(task => task.id === taskId) 
+/* 
+  if(found.completed == true){ found.completed = false
+  }
+  else {found.completed = true
+  } */
+
+  found.completed = !found.completed // hace lo mismo que el if anterior
+  
+  console.log(found);
+  pintarHTML(tasks);
+   
 };
 
+const handleButton = (event) => {
+  event.preventDefault();
+  
+}
+
+
+
+
 tareasUl.addEventListener("click", handleClickTareasUl);
+
+boton.addEventListener("click", handleButton)
+
+
+
+
+
+
